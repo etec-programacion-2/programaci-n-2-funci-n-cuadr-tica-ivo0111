@@ -4,12 +4,23 @@
 package org.example
 
 fun main() {
-    val a = 0
-    val b = 1
-    val c = 1
-    if (a === 0) {
+    val a = 1.0
+    val b = 1.0
+    val c = 1.0
+    if (a === 0.0) {
         println("El coeficiente cuadratico debe ser diferente de cero")
         return
     }
     println("La función es: ${a}x² + ${b}x + $c")
+    calcularValores(a,b,c,-5.0,5.0,1.0)
+}
+
+fun calcularValores(a:Double, b:Double, c:Double, xMin:Double, xMax:Double, paso:Double) {
+    var contador = xMin
+    println("x       {a}x² + ${b}x + $c")
+    while (contador < xMax) {
+        println("$contador    ${a*contador*contador + b*contador + c}")
+        contador += paso
+    }
+    return
 }
