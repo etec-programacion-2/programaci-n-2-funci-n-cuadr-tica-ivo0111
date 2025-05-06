@@ -5,7 +5,7 @@ package org.example
 
 fun main() {
     val a = 1.0
-    val b = 1.0
+    val b = 2.0
     val c = 1.0
     if (a === 0.0) {
         println("El coeficiente cuadratico debe ser diferente de cero")
@@ -13,6 +13,7 @@ fun main() {
     }
     println("La función es: ${a}x² + ${b}x + $c")
     calcularValores(a,b,c,-5.0,5.0,1.0)
+    raices(a,b,c)
 }
 
 fun calcularValores(a:Double, b:Double, c:Double, xMin:Double, xMax:Double, paso:Double) {
@@ -23,4 +24,22 @@ fun calcularValores(a:Double, b:Double, c:Double, xMin:Double, xMax:Double, paso
         contador += paso
     }
     return
+}
+
+fun raices(a:Double, b:Double, c:Double){
+    val disc : Double = b*b - 4*a*c
+    println("El discriminante es: $disc")
+    if (disc > 0) {
+        var raiz = (-1*b + Math.sqrt(b*b - 4*a*c))/(2*a)
+        println("La primera raiz es ${Math.round(raiz*100)/100}")
+        raiz = (-1*b - Math.sqrt(b*b - 4*a*c))/(2*a)
+        println("La segunda raiz es ${Math.round(raiz*100)/100}")
+    } else {
+        if (disc === 0.0) {
+            var raiz = (-1*b + Math.sqrt(b*b - 4*a*c))/(2*a)
+            println("La única raiz es ${Math.round(raiz*100)/100}")
+        } else {
+            println("La ecuación no tiene raices reales")
+        }
+    }
 }
