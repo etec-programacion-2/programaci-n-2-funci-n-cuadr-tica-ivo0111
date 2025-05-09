@@ -4,41 +4,45 @@
 package org.example
 
 fun main() {
-    val a = 1.0
-    val b = 2.0
-    val c = 1.0
+    val a = 1.0 //Coeficiente cuadratico
+    val b = 2.0 //Coeficiente lineal
+    val c = 1.0 //Termino constante
     if (a === 0.0) {
         println("El coeficiente cuadratico debe ser diferente de cero")
         return
     }
-    println("La función es: ${a}x² + ${b}x + $c")
-    calcularValores(a,b,c,-5.0,5.0,1.0)
-    raices(a,b,c)
+    println("La función es: ${a}x² + ${b}x + $c") //La función en su forma completa
+    calcularValores(a,b,c,-5.0,5.0,1.0) // Se calculan los valores de "y" para un intervalo definido
+    raices(a,b,c) // Se calculan las raices
 }
 
 fun calcularValores(a:Double, b:Double, c:Double, xMin:Double, xMax:Double, paso:Double) {
     var contador = xMin
     println("x       {a}x² + ${b}x + $c")
     while (contador < xMax) {
-        println("$contador    ${a*contador*contador + b*contador + c}")
+        println("$contador    ${a*contador*contador + b*contador + c}") //Se printean los resultados
         contador += paso
     }
     return
 }
 
 fun raices(a:Double, b:Double, c:Double){
-    val disc : Double = b*b - 4*a*c
+    val disc : Double = b*b - 4*a*c //Calculo del discriminante
     println("El discriminante es: $disc")
+    // Según el tipo de discriminante, se calculan las raices
     if (disc > 0) {
+        // Dos raices
         var raiz = (-1*b + Math.sqrt(b*b - 4*a*c))/(2*a)
         println("La primera raiz es ${Math.round(raiz*100)/100}")
         raiz = (-1*b - Math.sqrt(b*b - 4*a*c))/(2*a)
         println("La segunda raiz es ${Math.round(raiz*100)/100}")
     } else {
         if (disc === 0.0) {
+            // Una raiz
             var raiz = (-1*b + Math.sqrt(b*b - 4*a*c))/(2*a)
             println("La única raiz es ${Math.round(raiz*100)/100}")
         } else {
+            // Ninguna
             println("La ecuación no tiene raices reales")
         }
     }
